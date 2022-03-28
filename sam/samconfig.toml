@@ -1,0 +1,24 @@
+version = 0.1
+[dev]
+[dev.deploy]
+[dev.deploy.parameters]
+stack_name = "sam"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-gkjtfhxbqwy3"
+s3_prefix = "sam"
+region = "af-south-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []
+
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "sam-app"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-gkjtfhxbqwy3"
+s3_prefix = "sam-app"
+region = "af-south-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+disable_rollback = true
+image_repositories = []

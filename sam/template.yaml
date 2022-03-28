@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS SAM Tutorial
+
+Globals:
+  Function:
+    MemorySize: 128
+
+Resources:
+  APIFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs14.x
+      Handler: function.lambdaHandler
+      CodeUri: api/
+      Timeout: 3
+      Events:
+        Hello:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: POST
+            RestApiId: 
+              Ref: HelloAPI
+
+  HelloAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: staging
+      OpenApiVersion: 3.0.3
+
+  
+Outputs:
+  APIFunction:
+    Description: "Api Lambda Function ARN"
+    Value: !GetAtt APIFunction.Arn  

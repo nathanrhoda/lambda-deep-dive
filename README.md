@@ -1,2 +1,9 @@
-# lambda-deep-dive
-Spinning up aws lambda using Serverless Application Module SAM
+# Serverless  
+Building a lambda using SAM
+
+cd sam
+sam build
+
+sam local  invoke APIFunction -e api/event.json
+
+sam deploy --guided
